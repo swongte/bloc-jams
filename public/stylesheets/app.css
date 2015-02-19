@@ -44,6 +44,9 @@ body.landing {
 body.landing .navbar {
   margin-bottom: 0; }
 
+.buffer {
+  margin-bottom: 50px; }
+
 .album-header-container {
   margin-top: 55px;
   margin-bottom: 40px; }
