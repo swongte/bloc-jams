@@ -1,3 +1,9 @@
+@import "landing";
+@import "album";
+@import "collection";
+@import "player_bar";
+
+
 html {
     height: 100%;
   }
@@ -16,6 +22,7 @@ body.landing {
     padding-bottom: 0;
   }
 
+/* Moved to _landing.scss
 .hero-content {
     background: #2F1D57;
     padding: 100px 0;
@@ -49,6 +56,8 @@ body.landing {
     font-size: 14px;
   }
 
+*/
+
 // medium-purple: #7B46A3 - 123, 70, 163
  
  .player-header-nav {
@@ -60,6 +69,8 @@ body.landing .navbar {
   }
 
 .buffer {margin-bottom: 50px;}
+
+/* Moved to _album.scss
 
 .album-header-container {
    margin-top: 55px;
@@ -106,6 +117,10 @@ body.landing .navbar {
    padding: 20px;
    border-top: 1px solid rgba(255, 255, 255, .4);
  }
+
+ */
+
+/* Moved to _collection.scss
 
 .collection-album-container {
      margin-top: 30px;
@@ -175,6 +190,9 @@ body.landing .navbar {
    padding-left: 5px;
  }
 
+ */
+
+/* Moved to _album.scss
  .album-song-button {
    text-align: center;
    font-size: 14px;
@@ -209,6 +227,10 @@ body.landing .navbar {
    height: 70px;
    text-align: center;
  }
+
+ */
+
+ /* Moved to _player_bar.scss
 
 .player-bar {
    position: fixed;
@@ -379,7 +401,7 @@ body.landing .navbar {
    width: 100px;
    vertical-align: middle;
  }
-
+*/
 
 
 
