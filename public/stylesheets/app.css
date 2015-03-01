@@ -107,7 +107,7 @@ td.song-number {
     display: inline-block;
     width: 42px;
     height: 42px; }
-  .collection-album-container .collection-overlay-button:hover {
+  .collection-album-container:hover {
     cursor: pointer;
     color: white;
     background-color: #d2287b; }
