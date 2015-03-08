@@ -53,23 +53,27 @@ img {
     display: inline-block;
     width: 42px;
     height: 42px;
-}
-
-&:hover {
-    cursor: pointer;
-    color: white;
-    background-color: #d2287b;
-}
-
-i {
-    line-height: 42px;
-}
-
-.fa-play {
+      &:hover {
+      cursor: pointer;
+      color: white;
+      background-color: #d2287b;
+    }
+      i {
+      line-height: 42px;
+  }
+    .fa-play {
     padding-left: 5px;
 
   }
+
 }
+
+}
+
+
+
+
+
                       
   
  
