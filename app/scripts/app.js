@@ -124,6 +124,14 @@ blocJams.controller('Album.controller', ['$scope', 'SongPlayer', function($scope
 blocJams.controller('PlayerBar.controller', ['$scope', 'SongPlayer', function($scope, SongPlayer) {
   $scope.songPlayer = SongPlayer;
 
+    $scope.volumeClass = function() {
+     return {
+       'fa-volume-off': SongPlayer.volume == 0,
+       'fa-volume-down': SongPlayer.volume <= 70 && SongPlayer.volume > 0,
+       'fa-volume-up': SongPlayer.volume > 70
+     }
+   }
+
     SongPlayer.onTimeUpdate(function(event, time){
      $scope.$apply(function(){
        $scope.playTime = time;
@@ -144,6 +152,7 @@ blocJams.controller('PlayerBar.controller', ['$scope', 'SongPlayer', function($s
      currentSong: null,
      currentAlbum: null,
      playing: false,
+        volume: 90,
  
      play: function() {
        this.playing = true;
@@ -186,6 +195,12 @@ blocJams.controller('PlayerBar.controller', ['$scope', 'SongPlayer', function($s
       onTimeUpdate: function(callback) {
       return $rootScope.$on('sound:timeupdate', callback);
     },
+      setVolume: function(volume) {
+      if(currentSoundFile){
+        currentSoundFile.setVolume(volume);
+      }
+      this.volume = volume;
+    },
 
      setSong: function(album, song) {
         if (currentSoundFile) {
@@ -199,6 +214,8 @@ blocJams.controller('PlayerBar.controller', ['$scope', 'SongPlayer', function($s
           preload: true
         });
 
+        currentSoundFile.setVolume(this.volume);
+
         currentSoundFile.bind('timeupdate', function(e){
         $rootScope.$broadcast('sound:timeupdate', this.getTime());
       });
@@ -211,37 +228,6 @@ blocJams.controller('PlayerBar.controller', ['$scope', 'SongPlayer', function($s
 
  blocJams.directive('slider', ['$document', function($document){
 
-/*
-      blocJams.filter('timecode', function(){
-        return function(seconds) {
-          seconds = Number.parseFloat(seconds);
- 
-          // Returned when no time is provided.
-          if (Number.isNaN(seconds)) {
-            return '-:--';
-          }
- 
-          // make it a whole number
-          var wholeSeconds = Math.floor(seconds);
- 
-          var minutes = Math.floor(wholeSeconds / 60);
- 
-          remainingSeconds = wholeSeconds % 60;
- 
-          var output = minutes + ':';
- 
-          // zero pad seconds, so 9 seconds should be :09
-          if (remainingSeconds < 10) {
-            output += '0';
-          }
- 
-          output += remainingSeconds;
- 
-          return output;
-        }
-      })
-
-*/
 
       // Returns a number between 0 and 1 to determine where the mouse event happened along the slider bar.
       var calculateSliderPercentFromMouseEvent = function($slider, event) {
